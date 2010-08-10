@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>SMH | Really Bad Idea</title>
+		<script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+		<script src="Assets/js/upTheBracket.js"></script>
+	</head>
+	<body>
+		<h1>Up the bracket. A really bad idea and a work in progress</h1>
+		<h2>Text entered:</h2>
+		<p id="textEntered"></p>
+		<h2>Can also be written as:</h2>
+		<p id="alsoWritten">
+		<form>
+			<fieldset>
+				<label for="badIdeaText">Enter some text: </label>
+				<input type="text" name="badIdeaText" id="badIdeaText" />
+			</fieldset>
+			<button type="button" id="badIdea">Don't press this button</button>
+		</form>
+		<script type="text/javascript">			
+			$(document).ready(function() {
+				$('#badIdea').bind('click', function(e) {
+					//Yeah, we got eval / Yeah, it's evil / But we don't care y'all
+					$('#textEntered').text(eval(SMH.upTheBracket.convert($('#badIdeaText').val().toLowerCase())));
+					$('#alsoWritten').text(SMH.upTheBracket.convert($('#badIdeaText').val().toLowerCase()));
+				});
+			});
+		</script>
+	</body>
+</html>
